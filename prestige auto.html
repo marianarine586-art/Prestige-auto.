@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prestige Auto | Drive Your Dream</title>
+<style>
+:root{--red:#d93636;--gold:#d99a28;--black:#090909;--ink:#252525}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f4f4;color:var(--ink)}
+header{height:64px;background:#080808;color:white;display:flex;align-items:center;justify-content:space-between;padding:0 18px;position:sticky;top:0;z-index:10}
+.brand{display:flex;align-items:center;gap:10px}.brand img{width:56px;height:38px;object-fit:contain}
+.brand strong{font-family:Georgia,serif;letter-spacing:3px;font-size:18px}
+.header-actions{display:flex;gap:22px;font-size:22px;cursor:pointer}
+.hero{height:340px;position:relative;background:#080808;overflow:hidden}
+.hero img{width:100%;height:100%;object-fit:cover;filter:brightness(.72)}
+.hero-copy{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:white;text-align:center;text-shadow:0 2px 5px #000}
+.hero-copy .prestige{font:clamp(36px,8vw,68px) Georgia,serif;letter-spacing:5px}
+.hero-copy .auto{font:clamp(24px,5vw,42px) Georgia,serif;letter-spacing:8px;color:#e9c77f}
+.redline{height:6px;background:var(--red);width:85%;margin:16px auto}
+.perks{display:flex;justify-content:space-around;gap:10px;flex-wrap:wrap;color:#e7c77e;background:#111;padding:14px 8px;font-size:11px;letter-spacing:1px}
+.navlinks{background:#090909;color:#d7bd83;text-align:center;padding:13px 5px;font-size:11px;letter-spacing:2px}
+.navlinks a{color:inherit;text-decoration:none;margin:0 7px}
+.find{display:inline-block;background:#bd8b37;color:#111;padding:8px 22px;margin:12px;border-radius:2px;font-size:11px;font-weight:bold}
+main{max-width:1050px;margin:auto;padding:24px 16px}
+.section-title{text-align:center;color:#e19a24;font-size:23px;margin:12px 0 22px}
+.cars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+.car{background:white;padding:14px;text-align:center;box-shadow:0 2px 8px #00000012}
+.car-image-link{display:block}
+.car-image-link:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.car img{display:block;width:100%;height:230px;object-fit:cover}
+.car h3{font-size:17px;font-weight:400;margin:12px 0 6px}
+.button{display:inline-block;background:var(--red);color:white;text-decoration:none;padding:10px 24px;margin:8px 0;border:0;cursor:pointer}
+footer{background:#050505;color:#aaa;text-align:center;padding:18px;font-size:12px}
+.drawer{position:fixed;z-index:20;inset:0 auto 0 0;width:min(290px,82vw);background:#f7f7f7;padding:22px;transform:translateX(-105%);transition:.25s;box-shadow:0 0 0 100vmax #0008;visibility:hidden}
+.drawer.open{transform:translateX(0);visibility:visible}.drawer button{float:right;border:0;background:none;font-size:24px}
+.drawer a{display:block;color:#222;text-decoration:none;padding:11px 4px;border-bottom:1px solid #ddd}
+@media(max-width:650px){.cars{grid-template-columns:1fr}.hero{height:280px}.car img{height:auto;max-height:290px}.brand strong{font-size:15px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><img src="assets/hero.jpg" alt="Prestige Auto logo"><strong>PRESTIGE AUTO</strong></div>
+  <div class="header-actions"><span aria-label="Open menu" onclick="toggleMenu()">☰</span><span aria-label="Search vehicles" onclick="openSearch()">⌕</span><span aria-label="Shopping cart" onclick="openCart()">🛒<sup id="cart-count">0</sup></span></div>
+</header>
+<aside class="drawer" id="drawer"><button onclick="toggleMenu()">×</button><h3>Menu</h3>
+<a href="#home" onclick="toggleMenu()">Home</a>
+<a href="#axio" onclick="toggleMenu()">Axio</a><a href="#allion18" onclick="toggleMenu()">2018 Allion</a>
+<a href="#fielder" onclick="toggleMenu()">2008 Fielder</a><a href="#landcruiser" onclick="toggleMenu()">Land Cruiser</a>
+<a href="#premio" onclick="toggleMenu()">Premio</a><a href="#vezel" onclick="toggleMenu()">Honda Vezel</a>
+<a href="#allion12" onclick="toggleMenu()">2012 Toyota Allion</a></aside>
+<section id="home">
+<div class="hero"><img src="assets/hero.jpg" alt="Prestige Auto vehicle showroom banner"><div class="hero-copy"><div class="prestige">PRESTIGE</div><div class="auto">AUTO</div><div class="redline"></div><small>DRIVE YOUR DREAM</small></div></div>
+<div class="perks"><span>✧ QUALITY VEHICLES</span><span>✧ TRUSTED DEALERSHIP</span><span>✧ BEST PRICES</span><span>✧ AFTER SALES SERVICE</span></div>
+<div class="navlinks"><a href="#axio">AXIO</a> | <a href="#allion18">ALLION</a> | <a href="#fielder">FIELDER</a> | <a href="#landcruiser">LAND CRUISER</a> | <a href="#premio">PREMIO</a> | <a href="#vezel">VEZEL</a> | <a href="#cars">MORE</a><br><a class="find" href="#cars">FIND YOUR PERFECT DRIVE</a></div>
+</section>
+<main id="cars">
+<div class="section-title">Top seller</div>
+<div class="cars">
+<article class="car" id="axio"><a class="car-image-link" href="vehicle.html?car=axio" aria-label="View details for 2017 Toyota Axio"><img src="assets/axio.jpg" alt="2017 Toyota Axio"></a><h3>2017 Toyota Axio</h3></article>
+<article class="car" id="allion18"><a class="car-image-link" href="vehicle.html?car=allion18" aria-label="View details for 2018 Toyota Allion"><img src="assets/allion2018.jpg" alt="2018 Toyota Allion"></a><h3>2018 Toyota Allion</h3></article>
+<article class="car" id="fielder"><a class="car-image-link" href="vehicle.html?car=fielder" aria-label="View details for 2008 Toyota Fielder"><img src="assets/fielder.jpg" alt="2008 Toyota Fielder"></a><h3>2008 Toyota Fielder</h3></article>
+<article class="car" id="landcruiser"><a class="car-image-link" href="vehicle.html?car=landcruiser" aria-label="View details for 2021 Toyota Land Cruiser"><img src="assets/landcruiser.jpg" alt="2021 Toyota Land Cruiser"></a><h3>2021 Toyota Land Cruiser</h3></article>
+<article class="car" id="premio"><a class="car-image-link" href="vehicle.html?car=premio" aria-label="View details for 2011 Toyota Premio"><img src="assets/premio.jpg" alt="2011 Toyota Premio"></a><h3>2011 Toyota Premio</h3></article>
+<article class="car" id="vezel"><a class="car-image-link" href="vehicle.html?car=vezel" aria-label="View details for 2014 Honda Vezel"><img src="assets/vezel.jpg" alt="2014 Honda Vezel"></a><h3>2014 Honda Vezel</h3></article>
+<article class="car" id="allion12"><a class="car-image-link" href="vehicle.html?car=allion12" aria-label="View details for 2012 Toyota Allion"><img src="assets/allion2012.jpg" alt="2012 Toyota Allion"></a><h3>2012 Toyota Allion</h3></article>
+</div>
+</main>
+<footer>© Prestige Auto · Drive Your Dream.<br><a class="button" href="info.html">More Info</a></footer>
+<script>function toggleMenu(){document.getElementById('drawer').classList.toggle('open')}</script>
+
+<style>
+.header-actions sup{font-size:10px;background:#d93636;border-radius:50%;padding:2px 5px;vertical-align:top}
+.button{font:inherit;font-size:13px}
+.panel-backdrop{display:none;position:fixed;inset:0;background:#0008;z-index:30}
+.panel-backdrop.show{display:block}
+.side-panel{position:fixed;right:0;top:0;height:100%;width:min(390px,92vw);background:#fff;z-index:31;padding:22px;overflow:auto;transform:translateX(105%);transition:.25s;box-shadow:-5px 0 25px #0003}
+.side-panel.show{transform:translateX(0)}
+.panel-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ddd;padding-bottom:12px}
+.panel-head button{border:0;background:none;font-size:25px;cursor:pointer}
+.cart-row{padding:14px 0;border-bottom:1px solid #ddd;display:flex;justify-content:space-between;gap:12px}
+.cart-row button{border:0;background:none;color:#c33;cursor:pointer}
+.search-box{width:100%;padding:13px;border:1px solid #ccc;font-size:16px;margin:18px 0}
+.empty{color:#777;text-align:center;padding:25px 0}
+</style>
+<div class="panel-backdrop" id="backdrop" onclick="closePanels()"></div>
+<aside class="side-panel" id="cart-panel">
+ <div class="panel-head"><h2>Your cart</h2><button onclick="closePanels()" aria-label="Close">×</button></div>
+ <div id="cart-items"></div><h3 id="cart-total"></h3>
+ <button class="button" style="width:100%" onclick="checkout()">Send enquiry</button>
+ <p style="font-size:12px;color:#777">Prices marked “Price on request” will be confirmed by the dealership.</p>
+</aside>
+<aside class="side-panel" id="search-panel">
+ <div class="panel-head"><h2>Find a vehicle</h2><button onclick="closePanels()" aria-label="Close">×</button></div>
+ <input class="search-box" id="vehicle-search" placeholder="Search Axio, Allion, Vezel..." oninput="filterCars(this.value)">
+ <p style="font-size:12px;color:#777">Matching vehicles will appear in the listings.</p>
+</aside>
+<script>
+const cart = JSON.parse(localStorage.getItem('prestigeCart') || '[]');
+function saveCart(){localStorage.setItem('prestigeCart',JSON.stringify(cart));renderCart()}
+function addToCart(name,price){
+ const existing=cart.find(item=>item.name===name);
+ if(existing) existing.qty+=1; else cart.push({name,price,qty:1});
+ saveCart();openCart();
+}
+function removeFromCart(name){const i=cart.findIndex(item=>item.name===name);if(i>-1)cart.splice(i,1);saveCart()}
+function renderCart(){
+ document.getElementById('cart-count').textContent=cart.reduce((n,item)=>n+item.qty,0);
+ const box=document.getElementById('cart-items');
+ box.innerHTML=cart.length?cart.map(item=>`<div class="cart-row"><div><strong>${item.name}</strong><br><small>${item.price} · Qty ${item.qty}</small></div><button onclick="removeFromCart('${item.name.replace(/'/g,"\\'")}')">Remove</button></div>`).join(''):'<p class="empty">Your cart is empty.</p>';
+ document.getElementById('cart-total').textContent=cart.length?'Vehicles selected: '+cart.reduce((n,item)=>n+item.qty,0):'';
+}
+function showPanel(id){closePanels();document.getElementById('backdrop').classList.add('show');document.getElementById(id).classList.add('show')}
+function openCart(){renderCart();showPanel('cart-panel')}
+function openSearch(){showPanel('search-panel');setTimeout(()=>document.getElementById('vehicle-search').focus(),250)}
+function closePanels(){document.querySelectorAll('.side-panel').forEach(p=>p.classList.remove('show'));document.getElementById('backdrop').classList.remove('show')}
+function filterCars(query){
+ const q=query.toLowerCase();
+ document.querySelectorAll('.car').forEach(card=>card.style.display=card.innerText.toLowerCase().includes(q)?'block':'none');
+}
+function checkout(){
+ if(!cart.length){alert('Your cart is empty. Add a vehicle first.');return}
+ const lines=cart.map(i=>`${i.qty} x ${i.name} - ${i.price}`).join('%0A');
+ const subject=encodeURIComponent('Vehicle enquiry - Prestige Auto');
+ window.location.href=`mailto:prestigeauto@gmail.com?subject=${subject}&body=${lines}`;
+}
+renderCart();
+if(new URLSearchParams(window.location.search).get('cart')==='open') openCart();
+</script>
+
+</body></html>
